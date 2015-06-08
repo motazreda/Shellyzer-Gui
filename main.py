@@ -24,20 +24,27 @@ class Shellcode_Analyze(QMainWindow):
 					opstr = i.op_str.replace("0x", "")
 					info = binascii.unhexlify(opstr)
 					print str(info)
-					linear_disas = "0x%08x:\t\t%s\t%s\t%s\n" % (i.address, i.mnemonic, i.op_str, str(info))
-					# print "got it"
+					linear_disas = "0x%08x:\t\t%s\t%s\t\t" % (i.address, i.mnemonic, i.op_str)
+					linear_disas = linear_disas + "String : " + str(info) + "\n"
+					item = QStandardItem(linear_disas)
+					item.setEditable(False)
+					model.appendRow(item)
+					self.ui.listView.setModel(model)
 				except:
-					# print "Not Got it"
-					pass
-					# linear_disas = "0x%08x:\t\t%s\t%s\n"%(i.address, i.mnemonic, i.op_str)
-			# print "barra 5ales"
-			linear_disas = "0x%08x:\t\t%s\t%s\n"%(i.address, i.mnemonic, i.op_str)
-
-			item = QStandardItem(linear_disas)
-			item.setFont(QFont('Sans Serif'))
-			item.setEditable(False)
-			model.appendRow(item)
-			self.ui.listView.setModel(model)
+					# pass
+					linear_disas = "0x%08x:\t\t%s\t%s\n"%(i.address, i.mnemonic, i.op_str)					
+					item = QStandardItem(linear_disas)
+					item.setFont(QFont('Sans Serif'))
+					item.setEditable(False)
+					model.appendRow(item)
+					self.ui.listView.setModel(model)
+			else:
+				linear_disas = "0x%08x:\t\t%s\t%s\n"%(i.address, i.mnemonic, i.op_str)					
+				item = QStandardItem(linear_disas)
+				item.setFont(QFont('Sans Serif'))
+				item.setEditable(False)
+				model.appendRow(item)
+				self.ui.listView.setModel(model)	
 
 
 
