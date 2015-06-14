@@ -4,6 +4,7 @@ from PyQt4.QtCore import *
 from mainview import Ui_MainView
 from capstone import *
 import binascii
+import string
 
 class Shellcode_Analyze(QMainWindow):
 	def __init__(self, parent=None):
@@ -47,6 +48,14 @@ class Shellcode_Analyze(QMainWindow):
 				self.ui.listView.setModel(model)	
 
 
+		# here dumping strings in listWidget
+		self.item = ''
+		for strs in self.shellcode.decode('string-escape'):
+			if strs in string.printable:
+				self.item += strs
+				continue
+			self.strings = QListWidgetItem(self.item)
+			self.ui.listWidget.addItem(self.strings)
 
 
 app = QApplication(sys.argv)
