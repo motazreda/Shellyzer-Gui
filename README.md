@@ -1,8 +1,18 @@
-# Shellyzer-Gui
-Shellyzer Gui is a simple desktop application that helps you analyze shellcode (disassemble shellcode) in well view and i will add many features soon
+Welcome to the Shellyzer-Gui wiki!
 
-i developed this simple tool with PyQt4 and capstone python module all you just to do is download Pyqt4 and start enjoing 
+First you can run the application with this comamnd (python main.py)
 
-for the wiki click on the Link below
-https://github.com/motazreda/Shellyzer-Gui/wiki
+![](https://github.com/motazreda/Shellyzer-Gui/blob/master/Example.png)
+
+then you can pick any shellcode you need (with this format "\x00\x00\x00")
+ and put it in Put Shellcode field and Press Shellyze button as below
+
+![](https://github.com/motazreda/Shellyzer-Gui/blob/master/Example2.png)
+
+and here after pressing Shellyze button
+
+![](https://github.com/motazreda/Shellyzer-Gui/blob/master/Example3.png)
+
+as you can see it disassembled successfully
+
 Enjoy
